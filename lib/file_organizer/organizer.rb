@@ -1,49 +1,23 @@
 # frozen_string_literal: true
 
+require_relative 'file_handler'
+require_relative 'file_order'
+
 module FileOrganizer
+  # organizer.rb
   class Organizer
     attr_reader :directory, :types, :new_folder, :new_path
 
-    def initialize(directory, new_folder: false, new_path: nil)
+    def initialize(directory)
       @directory = directory
-      @types = {
-        images: ['.jpg', '.jpeg', '.png', '.gif'],
-        documents: ['.pdf', '.docx', '.txt', '.md'],
-        audio: ['.mp3', '.wav', '.flac'],
-        videos: ['.mp4', '.mkv', '.avi'],
-        archives: ['.zip', '.tar', '.rar', '.gz']
-      }
-      @new_folder = new_folder
-      @new_path = new_path
+      @file_handler = FileHandler.new(directory)
     end
 
     def organize
-      Dir.foreach do |file|
-        file_ext = File.extname(file)
-        category = types.find { |_key, exts| exts.include?(file_ext) }
+      @file_handler.scan_files.each do |file|
+        categorize_file = FileOrganizer::FileOrder.new(file).categorize
 
-        folder_name = get_folder_name(category)
-
-        destination = if new_folder && !new_path.empty?
-                        Dir.exist?(new_path) ? new_path : FileUtils.mkdir_p(folder_name)
-                      else
-                        new_path.empty? ? folder_name : new_path
-                      end
-
-        FileUtils.mv(file, destination)
-      end
-    end
-
-    private
-
-    def get_folder_name(category)
-      case category
-      when :images then 'Pictures'
-      when :documents then 'Documents'
-      when :audio then 'Music'
-      when :videos then 'Videos'
-      else
-        'Archives'
+        @file_handler.move_file(file, categorize_file)
       end
     end
   end
