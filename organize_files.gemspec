@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-require File.expand_path('lib/file_organizer/version', __dir__)
+require File.expand_path('lib/organize_files/version', __dir__)
 
 Gem::Specification.new do |s|
-  s.name = 'file_organizer'
+  s.name = 'organize_files'
   s.authors = ['Mayank Agnihotri']
   s.version = OrganizeFiles::VERSION
-  s.files = Dir['README.md', 'LICENSE', 'CHANGELOG.md', 'lib/**/*.rb', 'lib/**/*.rake', 'file_organizer.gemspec',
+  s.files = Dir['README.md', 'LICENSE', 'CHANGELOG.md', 'lib/**/*.rb', 'lib/**/*.rake', 'organize_files.gemspec',
                 '.github/*.md', 'Gemfile', 'Rakefile', 'CONTRIBUTING.md']
   s.licenses = ['MIT']
   s.summary = 'Organize files into their own separate folders'
