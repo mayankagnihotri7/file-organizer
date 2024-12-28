@@ -14,4 +14,5 @@ Gem::Specification.new do |s|
   s.required_ruby_version = '>= 3.1.4'
   s.extra_rdoc_files = ['README.md']
   s.add_development_dependency 'rubocop', '~> 1.68'
+  s.executables = ['organize_files']
 end
