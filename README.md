@@ -1,13 +1,13 @@
-# FileOrganizer
+# OrganizeFiles
 
-This gem provides `File Organizer` integration for Ruby and allows to organize files in your system into their respective folders.
+This gem provides `Organize Files` integration for Ruby and allows to organize files in your system into their respective folders.
 
 ## Getting started
 
 - Install the gem
-`gem install file_organizer`
+`gem install organize_files`
 - Enter the directory you want to sort the files in.
-`file_organizer '/path/to/file'`
+`organize_files '/path/to/file'`
 
 ### Requirements
 

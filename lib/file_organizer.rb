@@ -2,5 +2,5 @@
 
 require 'file_organizer/orgnizer'
 
-organizer = FileOrganizer::Organizer.new(ARGV[0])
+organizer = OrganizeFiles::Organizer.new(ARGV[0])
 organizer.organize

@@ -5,7 +5,7 @@ require File.expand_path('lib/file_organizer/version', __dir__)
 Gem::Specification.new do |s|
   s.name = 'file_organizer'
   s.authors = ['Mayank Agnihotri']
-  s.version = FileOrganizer::VERSION
+  s.version = OrganizeFiles::VERSION
   s.files = Dir['README.md', 'LICENSE', 'CHANGELOG.md', 'lib/**/*.rb', 'lib/**/*.rake', 'file_organizer.gemspec',
                 '.github/*.md', 'Gemfile', 'Rakefile', 'CONTRIBUTING.md']
   s.licenses = ['MIT']

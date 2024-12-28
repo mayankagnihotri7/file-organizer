@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module FileOrganizer
+module OrganizeFiles
   # file_sorter.rb
   class FileOrder
     TYPES = {
