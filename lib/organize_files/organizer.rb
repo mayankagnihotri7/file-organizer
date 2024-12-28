@@ -15,9 +15,11 @@ module OrganizeFiles
 
     def organize
       @file_handler.scan_files.each do |file|
-        categorize_file = OrganizeFiles::FileOrder.new(file).categorize
+        next if File.directory?(file)
 
+        categorize_file = OrganizeFiles::FileOrder.new(file).categorize
         @file_handler.move_file(file, categorize_file)
+        @file_handler.remove_empty_folders
       end
     end
   end
