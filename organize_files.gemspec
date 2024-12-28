@@ -15,4 +15,5 @@ Gem::Specification.new do |s|
   s.extra_rdoc_files = ['README.md']
   s.add_development_dependency 'rubocop', '~> 1.68'
   s.executables = ['organize_files']
+  s.homepage = 'https://github.com/mayankagnihotri7/file-organizer'
 end
