@@ -6,7 +6,7 @@ require_relative 'file_order'
 module OrganizeFiles
   # organizer.rb
   class Organizer
-    attr_reader :directory, :types, :new_folder, :new_path
+    attr_reader :directory
 
     def initialize(directory)
       @directory = directory
@@ -15,12 +15,22 @@ module OrganizeFiles
 
     def organize
       @file_handler.scan_files.each do |file|
-        next if File.directory?(file)
+        next if file_directory?(file)
 
         categorize_file = OrganizeFiles::FileOrder.new(file).categorize
         @file_handler.move_file(file, categorize_file)
         @file_handler.remove_empty_folders
       end
+    end
+
+    private
+
+    def file_directory?(file)
+      directory = []
+      expanded_file_path = File.expand_path(file, @directory)
+      File.directory?(expanded_file_path) && directory << expanded_file_path
+
+      !directory.empty?
     end
   end
 end
