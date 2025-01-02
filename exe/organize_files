@@ -1,0 +1,28 @@
+#!/usr/bin/env ruby
+
+# frozen_string_literal: true
+
+require_relative "../lib/organize_files"
+require "optparse"
+
+options = {}
+options[:directory] = ARGV[0]
+
+OptionParser.new do |opts|
+  opts.banner = "Usage: organize_files [options]"
+
+  opts.on("-h", "--help", "Prints this help") do
+    puts opts
+    exit
+  end
+end.parse!
+
+if options[:directory].nil?
+  puts "You must specify a directory to organize"
+  exit 1
+end
+
+sorter = OrganizeFiles::Organizer.new(options[:directory])
+sorter.organize
+
+puts "Files in '#{options[:directory]}' have been organized"

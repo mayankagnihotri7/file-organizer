@@ -2,8 +2,6 @@
 
 module OrganizeFiles
   class Organizer
-    attr_reader :directory
-
     def initialize(directory)
       @directory = directory
       @file_handler = FileHandler.new(directory)
@@ -13,7 +11,7 @@ module OrganizeFiles
       @file_handler.scan_files.each do |file|
         next if file_directory?(file)
 
-        categorize_file = OrganizeFiles::FileOrder.new(file).categorize
+        categorize_file = FileOrder.new(file).categorize
         @file_handler.move_file(file, categorize_file)
         @file_handler.remove_empty_folders
       end
@@ -22,11 +20,11 @@ module OrganizeFiles
     private
 
     def file_directory?(file)
-      directory = []
+      directories = []
       expanded_file_path = File.expand_path(file, @directory)
-      File.directory?(expanded_file_path) && directory << expanded_file_path
+      File.directory?(expanded_file_path) && directories << expanded_file_path
 
-      !directory.empty?
+      !directories.empty?
     end
   end
 end

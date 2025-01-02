@@ -18,7 +18,8 @@ Gem::Specification.new do |s|
   s.add_development_dependency "rspec"
   s.add_development_dependency "rubocop", "~> 1.68"
 
-  s.executables = ["organize_files"]
+  s.bindir = "exe"
+  s.executables = s.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   s.homepage = "https://github.com/mayankagnihotri7/file-organizer"
 
   s.metadata = {
