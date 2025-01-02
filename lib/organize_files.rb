@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
-require "organize_files/organizer"
+require "zeitwerk"
 
-organizer = OrganizeFiles::Organizer.new(ARGV[0])
-organizer.organize
+module OrganizeFiles
+  @loader = Zeitwerk::Loader.for_gem
+  @loader.setup
+end

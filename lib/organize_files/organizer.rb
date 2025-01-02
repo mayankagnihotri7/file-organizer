@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require_relative "file_handler"
-require_relative "file_order"
-
 module OrganizeFiles
   class Organizer
     attr_reader :directory
