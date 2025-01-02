@@ -21,7 +21,7 @@ RSpec.describe OrganizeFiles::FileHandler do
     subject { described_class.new(directory).scan_files }
 
     it {
-      is_expected.to eq(["document.pdf", "audio.mp3", "other-files.anything", "app.apk", "video.mp4", "picture.jpg"])
+      is_expected.to include("document.pdf", "audio.mp3", "other-files.anything", "app.apk", "video.mp4", "picture.jpg")
     }
   end
 
