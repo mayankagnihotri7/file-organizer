@@ -7,21 +7,21 @@ The Organize Files gem for Ruby streamlines this process by automatically organi
 ## Getting started
 
 1. Install the gem
-```
+```bash
 gem install organize_files
 ```
 
 2. Enter the directory you want to sort the files in.
-```
-`organize_files '/path/to/file'`
+```bash
+organize_files '/path/to/file'
 ```
 
 Example:
-```
+```bash
 organize_files '/path/to/downloads'
 ```
 Output:
-```
+```bash
 Successfully moved index2.pdf to /path/to/downloads/Documents/index2.pdf
 ```
 

@@ -13,11 +13,14 @@ Gem::Specification.new do |s|
   s.platform = Gem::Platform::RUBY
   s.required_ruby_version = ">= 3.1.4"
   s.extra_rdoc_files = ["README.md"]
+  s.add_dependency "zeitwerk", "~> 2.4"
+
   s.add_development_dependency "rspec"
   s.add_development_dependency "rubocop", "~> 1.68"
 
   s.executables = ["organize_files"]
   s.homepage = "https://github.com/mayankagnihotri7/file-organizer"
+
   s.metadata = {
     "source_code_uri" => "https://github.com/mayankagnihotri7/file-organizer"
   }
