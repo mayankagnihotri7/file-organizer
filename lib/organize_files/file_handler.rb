@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
-require 'fileutils'
+require "fileutils"
 
 module OrganizeFiles
-  # file_handler.rb
   class FileHandler
     def initialize(directory)
       @directory = directory

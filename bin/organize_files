@@ -1,24 +1,26 @@
 #!/usr/bin/env ruby
 
-require 'optparse'
-require 'organize_files'
+# frozen_string_literal: true
+
+require "optparse"
+require "organize_files"
 
 options = {}
 OptionParser.new do |opts|
-  opts.banner = 'Usage: organize_files [options]'
+  opts.banner = "Usage: organize_files [options]"
 
-  opts.on('-d', '--directory DIRECTORY', 'Directory to organize') do |directory|
+  opts.on("-d", "--directory DIRECTORY", "Directory to organize") do |directory|
     options[:directory] = directory
   end
 
-  opts.on('-h', '--help', 'Prints this help') do
+  opts.on("-h", "--help", "Prints this help") do
     puts opts
     exit
   end
 end.parse!
 
 if options[:directory].nil?
-  puts 'You must specify a directory to organize'
+  puts "You must specify a directory to organize"
   exit 1
 end
 
