@@ -6,23 +6,69 @@ The Organize Files gem for Ruby streamlines this process by automatically organi
 
 ## Getting started
 
-1. Install the gem
+Install the gem
 ```bash
 gem install organize_files
 ```
 
-2. Enter the directory you want to sort the files in.
+## Usage
+
+Enter the directory you want to sort the files in.
+
 ```bash
-organize_files '/path/to/file'
+organize_files [options] <directory>
 ```
+- <directory> The directory you want to organize
 
 Example:
 ```bash
 organize_files '/path/to/downloads'
 ```
+
 Output:
 ```bash
 Successfully moved index2.pdf to /path/to/downloads/Documents/index2.pdf
+```
+
+Options:
+- `-c`, `--config`, CONFIG_FILE: Specify the configuration file to use.
+
+- If not provided, the script will look for `~/.organize_config.yml` in your home directory.
+- If ~/.organize_config.yml is not found, it will use the built-in default configuration.
+- `-h`, `--help`, Prints this help message.
+
+
+## Configuration
+You can customize how files are categorized by creating a YAML configuration file.
+
+Default Configuration File:
+
+The script will automatically look for a configuration file named ~/.organize_config.yml in your home directory.
+
+Example ~/.organize_config.yml:
+
+```YAML
+images:
+  - .jpg
+  - .jpeg
+  - .png
+documents:
+  - .pdf
+  - .docx
+  - .txt
+audio:
+  - .mp3
+  - .wav
+videos:
+  - .mp4
+  - .mov
+archives:
+  - .zip
+  - .rar
+programming:
+  - .rb
+  - .py
+  - .js
 ```
 
 ### Requirements

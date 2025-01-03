@@ -1,0 +1,21 @@
+images:
+  - .jpg
+  - .jpeg
+  - .png
+documents:
+  - .pdf
+  - .docx
+  - .txt
+audio:
+  - .mp3
+  - .ogg
+videos:
+  - .mp4
+  - .mov
+archives:
+  - .zip
+  - .rar
+programming:
+  - .rb
+  - .py
+  - .js
