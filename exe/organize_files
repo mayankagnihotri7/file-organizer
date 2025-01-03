@@ -15,6 +15,10 @@ OptionParser.new do |opts|
     options[:ignore_empty_directory] = true
   end
 
+  opts.on("-c", "--config CONFIG_FILE", "Specify config file (default: .organize_config.yml)") do |config|
+    options[:config] = config
+  end
+
   opts.on("-h", "--help", "Prints this help") do
     puts opts
     exit
