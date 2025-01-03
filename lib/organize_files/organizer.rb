@@ -2,9 +2,10 @@
 
 module OrganizeFiles
   class Organizer
-    def initialize(directory)
-      @directory = directory
-      @file_handler = FileHandler.new(directory)
+    def initialize(options)
+      @directory = options[:directory]
+      @file_handler = FileHandler.new(@directory)
+      @ignore_empty_directory = options[:ignore_empty_directory]
     end
 
     def organize
@@ -13,8 +14,8 @@ module OrganizeFiles
 
         categorize_file = FileOrder.new(file).categorize
         @file_handler.move_file(file, categorize_file)
-        @file_handler.remove_empty_folders
       end
+      @file_handler.remove_empty_folders unless @ignore_empty_directory
     end
 
     private

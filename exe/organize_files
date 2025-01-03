@@ -11,6 +11,10 @@ options[:directory] = ARGV[0]
 OptionParser.new do |opts|
   opts.banner = "Usage: organize_files [options]"
 
+  opts.on("-i", "--ignore-empty-directories", "Ignore Empty Directories") do
+    options[:ignore_empty_directory] = true
+  end
+
   opts.on("-h", "--help", "Prints this help") do
     puts opts
     exit
@@ -22,7 +26,7 @@ if options[:directory].nil?
   exit 1
 end
 
-sorter = OrganizeFiles::Organizer.new(options[:directory])
+sorter = OrganizeFiles::Organizer.new(options)
 sorter.organize
 
 puts "Files in '#{options[:directory]}' have been organized"
