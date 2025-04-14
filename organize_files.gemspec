@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.authors = ["Mayank Agnihotri"]
   s.version = OrganizeFiles::VERSION
   s.files = Dir["README.md", "LICENSE", "CHANGELOG.md", "lib/**/*.rb", "lib/**/*.rake", "organize_files.gemspec",
-                ".github/*.md", "Gemfile", "Rakefile", "CONTRIBUTING.md"]
+                ".github/*.md", "Gemfile", "Rakefile", "CONTRIBUTING.md", "exe/*"]
   s.licenses = ["MIT"]
   s.summary = "Organize files into their own separate folders"
   s.platform = Gem::Platform::RUBY
